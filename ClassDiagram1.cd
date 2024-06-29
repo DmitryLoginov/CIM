@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CIM.IdentifiedObject" Collapsed="true">
+    <Position X="8.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAIAAAAAAAAAAEAAAAAACAAAAAAAA=</HashCode>
+      <FileName>IdentifiedObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.PowerSystemResource" Collapsed="true">
+    <Position X="8.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PowerSystemResource.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Equipment" Collapsed="true">
+    <Position X="8.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Equipment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.ConductingEquipment" Collapsed="true">
+    <Position X="8.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConductingEquipment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.PowerTransformer" Collapsed="true">
+    <Position X="8.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>PowerTransformer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.TransformerEnd" Collapsed="true">
+    <Position X="10.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAgBAAAADAAAAAACAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>TransformerEnd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.PowerTransformerEnd" Collapsed="true">
+    <Position X="10.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAEAAAAAAAAAAAIAQhBAAAAiAA=</HashCode>
+      <FileName>PowerTransformerEnd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.TransformerTest" Collapsed="true">
+    <Position X="12.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TransformerTest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.NoLoadTest" Collapsed="true">
+    <Position X="12.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAgAAAAAAAAAAAAAEAAAAAAAAAAgA=</HashCode>
+      <FileName>NoLoadTest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.ShortCircuitTest" Collapsed="true">
+    <Position X="14.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAEAAAgCAAAIAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>ShortCircuitTest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.AssetInfo" Collapsed="true">
+    <Position X="6.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AssetInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.TransformerEndInfo" Collapsed="true">
+    <Position X="6.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAEAABAAAAAAAgABAEAAAAAAAI=</HashCode>
+      <FileName>TransformerEndInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.TransformerMeshImpedance" Collapsed="true">
+    <Position X="4.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBAAAAAAA=</HashCode>
+      <FileName>TransformerMeshImpedance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.TransformerStarImpedance" Collapsed="true">
+    <Position X="2.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAABBAAAACAA=</HashCode>
+      <FileName>TransformerStarImpedance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
