@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace CIM
 {
-    public abstract class Equipment : PowerSystemResource
+    public class StaticVarCompensator : RegulatingCondEq
     {
-        public bool normallyInService { get; set; } = true;
     }
 }

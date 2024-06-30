@@ -2,9 +2,9 @@
 {
     public abstract class IdentifiedObject
     {
-        public string name { get; set; }
-        public string aliasName { get; set; }
-        public string description { get; set; }
+        public string name { get; set; } = string.Empty;
+        public string aliasName { get; set; } = string.Empty;
+        public string description { get; set; } = string.Empty;
         public Guid mRID { get; set; }
     }
 }

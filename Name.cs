@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CIM
 {
-    public abstract class Equipment : PowerSystemResource
+    public class Name
     {
-        public bool normallyInService { get; set; } = true;
+        public string name { get; set; } = string.Empty;
     }
 }

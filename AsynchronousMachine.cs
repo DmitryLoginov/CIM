@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace CIM
 {
-    public abstract class Equipment : PowerSystemResource
+    public class AsynchronousMachine : RotatingMachine
     {
-        public bool normallyInService { get; set; } = true;
     }
 }

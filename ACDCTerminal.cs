@@ -8,6 +8,22 @@ namespace CIM
 {
     public abstract class ACDCTerminal : IdentifiedObject
     {
-        public int sequenceNumber { get; set; }
+        private int _sequenceNumber;
+        
+        public int sequenceNumber
+        {
+            get => _sequenceNumber;
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new FormatException("sequenceNumber must be greater than zero");
+                }
+                else
+                {
+                    _sequenceNumber = value;
+                }
+            }
+        }
     }
 }

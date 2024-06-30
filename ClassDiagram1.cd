@@ -1,101 +1,612 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="CIM.IdentifiedObject" Collapsed="true">
-    <Position X="8.75" Y="2" Width="1.5" />
+    <Position X="15" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAIAAAAAAAAAAEAAAAAACAAAAAAAA=</HashCode>
       <FileName>IdentifiedObject.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CIM.PowerSystemResource" Collapsed="true">
-    <Position X="8.75" Y="3" Width="1.5" />
+    <Position X="15" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PowerSystemResource.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CIM.Equipment" Collapsed="true">
-    <Position X="8.75" Y="4.25" Width="1.5" />
+    <Position X="15" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Equipment.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CIM.ConductingEquipment" Collapsed="true">
-    <Position X="8.75" Y="5.5" Width="1.5" />
+    <Position X="17.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ConductingEquipment.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CIM.PowerTransformer" Collapsed="true">
-    <Position X="8.75" Y="6.75" Width="1.5" />
+    <Position X="23.75" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>PowerTransformer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CIM.TransformerEnd" Collapsed="true">
-    <Position X="10.75" Y="3" Width="1.5" />
+    <Position X="28.75" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAgBAAAADAAAAAACAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
       <FileName>TransformerEnd.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CIM.PowerTransformerEnd" Collapsed="true">
-    <Position X="10.75" Y="4.25" Width="1.5" />
+    <Position X="28.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAIAAAAAAEAAAAAAAAAAAIAQhBAAAAiAA=</HashCode>
       <FileName>PowerTransformerEnd.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CIM.TransformerTest" Collapsed="true">
-    <Position X="12.75" Y="3" Width="1.5" />
+    <Position X="32" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TransformerTest.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CIM.NoLoadTest" Collapsed="true">
-    <Position X="12.75" Y="4.25" Width="1.5" />
+    <Position X="31" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAEAAAgAAAAAAAAAAAAAEAAAAAAAAAAgA=</HashCode>
       <FileName>NoLoadTest.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CIM.ShortCircuitTest" Collapsed="true">
-    <Position X="14.75" Y="4.25" Width="1.5" />
+    <Position X="33" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAEAAAgCAAAIAAAAAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>ShortCircuitTest.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CIM.AssetInfo" Collapsed="true">
-    <Position X="6.75" Y="3" Width="1.5" />
+    <Position X="26.75" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AssetInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CIM.TransformerEndInfo" Collapsed="true">
-    <Position X="6.75" Y="4.25" Width="1.5" />
+    <Position X="26.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAQAEAABAAAAAAAgABAEAAAAAAAI=</HashCode>
       <FileName>TransformerEndInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CIM.TransformerMeshImpedance" Collapsed="true">
-    <Position X="4.75" Y="3" Width="1.5" />
+    <Position X="35" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBAAAAAAA=</HashCode>
       <FileName>TransformerMeshImpedance.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CIM.TransformerStarImpedance" Collapsed="true">
-    <Position X="2.75" Y="3" Width="1.5" />
+    <Position X="37" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAABBAAAACAA=</HashCode>
       <FileName>TransformerStarImpedance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.AuxiliaryEquipment" Collapsed="true">
+    <Position X="7.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AuxiliaryEquipment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Conductor" Collapsed="true">
+    <Position X="11.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Conductor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Connector" Collapsed="true">
+    <Position X="13.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Connector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.ConnectivityNodeContainer" Collapsed="true">
+    <Position X="3" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConnectivityNodeContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.EquipmentContainer" Collapsed="true">
+    <Position X="3" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EquipmentContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.SteamSupply" Collapsed="true">
+    <Position X="13" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SteamSupply.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.FossilSteamSupply" Collapsed="true">
+    <Position X="9" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FossilSteamSupply.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Sensor" Collapsed="true">
+    <Position X="7.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Sensor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.ACDCTerminal" Collapsed="true">
+    <Position X="1" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ACDCTerminal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Terminal" Collapsed="true">
+    <Position X="1" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Terminal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.BaseVoltage" Collapsed="true">
+    <Position X="11.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAEAAAAAAAAAAACQgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BaseVoltage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.GeneratingUnit" Collapsed="true">
+    <Position X="16.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GeneratingUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.PhaseTapChanger" Collapsed="true">
+    <Position X="24.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PhaseTapChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.PhaseTapChangerNonLinear" Collapsed="true">
+    <Position X="24.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PhaseTapChangerNonLinear.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.PrimeMover" Collapsed="true">
+    <Position X="18.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PrimeMover.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.ProtectedSwitch" Collapsed="true">
+    <Position X="21.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProtectedSwitch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.RegulatingCondEq" Collapsed="true">
+    <Position X="15.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RegulatingCondEq.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.RotatingMachine" Collapsed="true">
+    <Position X="15.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RotatingMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.ShuntCompensator" Collapsed="true">
+    <Position X="17.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShuntCompensator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Switch" Collapsed="true">
+    <Position X="21.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Switch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.TapChanger" Collapsed="true">
+    <Position X="24.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TapChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.ACLineSegment" Collapsed="true">
+    <Position X="11.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ACLineSegment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.AssetContainer" Collapsed="true">
+    <Position X="39" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AssetContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.AsynchronousMachine" Collapsed="true">
+    <Position X="15.75" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AsynchronousMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Bay" Collapsed="true">
+    <Position X="1" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Breaker" Collapsed="true">
+    <Position X="21.75" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Breaker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.BusbarSection" Collapsed="true">
+    <Position X="13.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusbarSection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.BWRSteamSupply" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BWRSteamSupply.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.CombustionTurbine" Collapsed="true">
+    <Position X="22.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CombustionTurbine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.ConnectivityNode" Collapsed="true">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConnectivityNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.CurrentTransformer" Collapsed="true">
+    <Position X="6.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CurrentTransformer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Disconnector" Collapsed="true">
+    <Position X="23.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Disconnector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Document" Collapsed="true">
+    <Position X="41" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Document.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.DrumBoiler" Collapsed="true">
+    <Position X="7" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DrumBoiler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Fuse" Collapsed="true">
+    <Position X="25.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Fuse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.GeographicalRegion" Collapsed="true">
+    <Position X="43" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GeographicalRegion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.GroundDisconnector" Collapsed="true">
+    <Position X="27.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GroundDisconnector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.HeatRecoveryBoiler" Collapsed="true">
+    <Position X="9" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HeatRecoveryBoiler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.HydroGeneratingUnit" Collapsed="true">
+    <Position X="22.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HydroGeneratingUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.HydroTurbine" Collapsed="true">
+    <Position X="18.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HydroTurbine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Jumper" Collapsed="true">
+    <Position X="29.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Jumper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Line" Collapsed="true">
+    <Position X="3" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Line.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.LinearShuntCompensator" Collapsed="true">
+    <Position X="17.75" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LinearShuntCompensator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.LoadBreakSwitch" Collapsed="true">
+    <Position X="23.75" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoadBreakSwitch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.NonlinearShuntCompensator" Collapsed="true">
+    <Position X="19.75" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NonlinearShuntCompensator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.NuclearGeneratingUnit" Collapsed="true">
+    <Position X="16.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NuclearGeneratingUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Organisation" Collapsed="true">
+    <Position X="47" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Organisation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.OrganisationRole" Collapsed="true">
+    <Position X="49" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OrganisationRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.PhaseTapChangerAsymmetrical" Collapsed="true">
+    <Position X="24.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PhaseTapChangerAsymmetrical.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.PhaseTapChangerLinear" Collapsed="true">
+    <Position X="26.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PhaseTapChangerLinear.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.PhaseTapChangerSymmetrical" Collapsed="true">
+    <Position X="26.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PhaseTapChangerSymmetrical.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.PhaseTapChangerTabular" Collapsed="true">
+    <Position X="28.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PhaseTapChangerTabular.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Plant" Collapsed="true">
+    <Position X="5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Plant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.PotentialTransformer" Collapsed="true">
+    <Position X="8.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PotentialTransformer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.PSRType" Collapsed="true">
+    <Position X="51" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PSRType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.PWRSteamSupply" Collapsed="true">
+    <Position X="13" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PWRSteamSupply.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.RatioTapChanger" Collapsed="true">
+    <Position X="26.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RatioTapChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Recloser" Collapsed="true">
+    <Position X="25.75" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Recloser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.BusArrangement" Collapsed="true">
+    <Position X="9.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusArrangement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.SeriesCompensator" Collapsed="true">
+    <Position X="25.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SeriesCompensator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.StaticVarCompensator" Collapsed="true">
+    <Position X="19.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StaticVarCompensator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.SteamTurbine" Collapsed="true">
+    <Position X="20.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SteamTurbine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Subcritical" Collapsed="true">
+    <Position X="8" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Subcritical.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.SubGeographicalRegion" Collapsed="true">
+    <Position X="45" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SubGeographicalRegion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Substation" Collapsed="true">
+    <Position X="2" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Substation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Supercritical" Collapsed="true">
+    <Position X="11" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Supercritical.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.SurgeArrester" Collapsed="true">
+    <Position X="5.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SurgeArrester.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.SynchronousMachine" Collapsed="true">
+    <Position X="13.75" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SynchronousMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.ThermalGeneratingUnit" Collapsed="true">
+    <Position X="18.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ThermalGeneratingUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.VoltageLevel" Collapsed="true">
+    <Position X="4" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VoltageLevel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.WaveTrap" Collapsed="true">
+    <Position X="11.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WaveTrap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.WindGeneratingUnit" Collapsed="true">
+    <Position X="20.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WindGeneratingUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIM.Asset" Collapsed="true">
+    <Position X="39" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAQAAAAAAAAIAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Asset.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

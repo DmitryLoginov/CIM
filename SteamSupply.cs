@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace CIM
 {
-    public abstract class Equipment : PowerSystemResource
+    public abstract class SteamSupply : PowerSystemResource
     {
-        public bool normallyInService { get; set; } = true;
     }
 }
