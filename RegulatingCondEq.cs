@@ -8,5 +8,9 @@ namespace CIM
 {
     public abstract class RegulatingCondEq : ConductingEquipment
     {
+        protected RegulatingCondEq() { }
+
+        protected RegulatingCondEq(Guid mRID) : base(mRID) { }
+
     }
 }

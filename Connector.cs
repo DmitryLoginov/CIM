@@ -8,5 +8,8 @@ namespace CIM
 {
     public abstract class Connector : ConductingEquipment
     {
+        protected Connector() { }
+
+        protected Connector(Guid mRID) : base(mRID) { }
     }
 }

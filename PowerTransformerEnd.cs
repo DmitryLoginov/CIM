@@ -18,5 +18,16 @@ namespace CIM
         public double x { get; set; }
         public PowerTransformer PowerTransformer { get; set; }
         public TransformerEndInfo TransformerEndInfo { get; set; }
+
+        public PowerTransformerEnd() { }
+        public PowerTransformerEnd(Guid mRID) : base(mRID) { }
+        public PowerTransformerEnd(PowerTransformer powerTransformer)
+        {
+            PowerTransformer = powerTransformer;
+        }
+        public PowerTransformerEnd(Guid mRID, PowerTransformer powerTransformer) : base(mRID)
+        {
+            PowerTransformer = powerTransformer;
+        }
     }
 }

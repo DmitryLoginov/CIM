@@ -8,5 +8,6 @@ namespace CIM
 {
     public abstract class Sensor : AuxiliaryEquipment
     {
+
     }
 }

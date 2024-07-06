@@ -8,5 +8,9 @@ namespace CIM
 {
     public class CombustionTurbine : PrimeMover
     {
+        public HeatRecoveryBoiler HeatRecoveryBoiler { get; set; }
+        
+        public CombustionTurbine() { }
+        public CombustionTurbine(Guid mRID) : base(mRID) { }
     }
 }

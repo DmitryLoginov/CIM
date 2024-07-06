@@ -8,5 +8,8 @@ namespace CIM
 {
     public abstract class FossilSteamSupply : SteamSupply
     {
+        protected FossilSteamSupply() { }
+
+        protected FossilSteamSupply(Guid mRID) : base(mRID) { }
     }
 }

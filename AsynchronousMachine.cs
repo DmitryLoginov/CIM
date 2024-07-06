@@ -8,5 +8,12 @@ namespace CIM
 {
     public class AsynchronousMachine : RotatingMachine
     {
+        /// <summary>
+        /// rf
+        /// </summary>
+        public PrimeMover PrimeMover { get; set; }
+        
+        public AsynchronousMachine() { }
+        public AsynchronousMachine(Guid mRID) : base(mRID) { }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
     public abstract class ACDCTerminal : IdentifiedObject
     {
@@ -24,6 +18,19 @@ namespace CIM
                     _sequenceNumber = value;
                 }
             }
+        }
+
+        /// <summary>
+        /// doubtful but okay?
+        /// </summary>
+        protected ACDCTerminal() { }
+        protected ACDCTerminal(int sequenceNumber)
+        {
+            this.sequenceNumber = sequenceNumber;
+        }
+        protected ACDCTerminal(int sequenceNumber, Guid mRID) : base(mRID)
+        {
+            this.sequenceNumber = sequenceNumber;
         }
     }
 }

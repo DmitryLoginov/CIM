@@ -8,5 +8,7 @@ namespace CIM
 {
     public abstract class TapChanger : PowerSystemResource
     {
+        protected TapChanger() { }
+        protected TapChanger(Guid mRID) : base(mRID) { }
     }
 }

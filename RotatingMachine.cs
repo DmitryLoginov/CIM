@@ -8,5 +8,9 @@ namespace CIM
 {
     public abstract class RotatingMachine : RegulatingCondEq
     {
+        public GeneratingUnit GeneratingUnit { get; set; }
+        
+        protected RotatingMachine() { }
+        protected RotatingMachine(Guid mRID) : base(mRID) { }
     }
 }

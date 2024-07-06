@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
     public class Asset : IdentifiedObject
     {
+        private AssetContainer _assetContainer;
+
         private PowerSystemResource[] _powerSystemResource = [];
 
         public PowerSystemResource[] PowerSystemResource
@@ -16,15 +11,28 @@ namespace CIM
             get => _powerSystemResource;
         }
 
-        public AssetContainer AssetContainer { get; set; }
+        public AssetContainer AssetContainer
+        {
+            get => _assetContainer;
+            set
+            {
+                _assetContainer = value;
+                _assetContainer.AddToAssets(this);
+            }
+        }
+
+        public Asset() { }
+
+        public Asset(Guid mRID) : base(mRID) { }
 
         public void AddToPowerSystemResource(PowerSystemResource powerSystemResource)
         {
             if (!_powerSystemResource.Contains(powerSystemResource))
             {
-                Array.Resize(ref _powerSystemResource, PowerSystemResource.Length + 1);
+                Array.Resize(ref _powerSystemResource, _powerSystemResource.Length + 1);
                 _powerSystemResource[_powerSystemResource.Length - 1] = powerSystemResource;
-                // psr add asset logics
+
+                powerSystemResource.AddToAssets(this);
             }
         }
 
@@ -45,7 +53,7 @@ namespace CIM
 
                 _powerSystemResource = tempArray;
 
-                // psr removal logic
+                powerSystemResource.RemoveFromAssets(this);
             }
         }
     }
