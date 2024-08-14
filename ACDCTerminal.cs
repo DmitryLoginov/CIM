@@ -1,9 +1,15 @@
 ﻿namespace CIM
 {
+    /// <summary>
+    /// DC and AC pole.
+    /// </summary>
     public abstract class ACDCTerminal : IdentifiedObject
     {
         private int _sequenceNumber;
-        
+
+        /// <summary>
+        /// Serial number of the pole of electrically conductive equipment.
+        /// </summary>
         public int sequenceNumber
         {
             get => _sequenceNumber;
@@ -21,14 +27,23 @@
         }
 
         /// <summary>
-        /// doubtful but okay?
+        /// ACDCTerminal constructor.
         /// </summary>
-        protected ACDCTerminal() { }
-        protected ACDCTerminal(int sequenceNumber)
+        protected ACDCTerminal()
         {
-            this.sequenceNumber = sequenceNumber;
+            sequenceNumber = 1;
         }
-        protected ACDCTerminal(int sequenceNumber, Guid mRID) : base(mRID)
+        /// <summary>
+        /// ACDCTerminal constructor.
+        /// </summary>
+        /// <param name="sequenceNumber"><inheritdoc cref="sequenceNumber" path="/summary/node()" /></param>
+        protected ACDCTerminal(int sequenceNumber) : this(Guid.NewGuid(), sequenceNumber) { }
+        /// <summary>
+        /// ACDCTerminal constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
+        /// <param name="sequenceNumber"><inheritdoc cref="sequenceNumber" path="/summary/node()" /></param>
+        protected ACDCTerminal(Guid mRID, int sequenceNumber) : base(mRID)
         {
             this.sequenceNumber = sequenceNumber;
         }

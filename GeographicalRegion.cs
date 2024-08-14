@@ -1,21 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Federal District of the Russian Federation.
+    /// </summary>
     public class GeographicalRegion : IdentifiedObject
     {
         private SubGeographicalRegion[] _regions = [];
 
+        /// <summary>
+        /// Subjects of the Russian Federation.
+        /// </summary>
         public SubGeographicalRegion[] Regions
         {
             get => _regions;
         }
-        
-        public GeographicalRegion() { }
+
+        /// <summary>
+        /// GeographicalRegion constructor.
+        /// </summary>
+        public GeographicalRegion() : base() { }
+        /// <summary>
+        /// GeographicalRegion constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         public GeographicalRegion(Guid mRID) : base(mRID) { }
 
         public void AddToRegions(SubGeographicalRegion region)
@@ -25,7 +32,7 @@ namespace CIM
                 Array.Resize(ref _regions, _regions.Length + 1);
                 _regions[_regions.Length - 1] = region;
 
-                region.Region = this;
+                //region.Region = this;
             }
         }
 
@@ -46,7 +53,7 @@ namespace CIM
 
                 _regions = tempArray;
 
-                region.Region = null;
+                //region.Region = null;
             }
         }
     }

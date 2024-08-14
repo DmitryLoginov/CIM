@@ -1,21 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Steam turbine.
+    /// </summary>
     public class SteamTurbine : PrimeMover
     {
         private SteamSupply[] _steamSupplies = [];
 
+        /// <summary>
+        /// Boilers supplying a steam turbine.
+        /// </summary>
         public SteamSupply[] SteamSupplies
         {
             get => _steamSupplies;
         }
 
-        public SteamTurbine() { }
+        /// <summary>
+        /// SteamTurbine constructor.
+        /// </summary>
+        public SteamTurbine() : base() { }
+        /// <summary>
+        /// SteamTurbine constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         public SteamTurbine(Guid mRID) : base(mRID) { }
 
         public void AddToSteamSupplies(SteamSupply steamSupply)

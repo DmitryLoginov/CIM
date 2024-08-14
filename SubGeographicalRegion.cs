@@ -1,40 +1,69 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Subject of Russian Federation.
+    /// </summary>
     public class SubGeographicalRegion : IdentifiedObject
     {
+        private GeographicalRegion _region;
         private Line[] _lines = [];
-        /// <summary>
-        /// rf
-        /// </summary>
         private Plant[] _plants = [];
         private Substation[] _substations = [];
 
+        /// <summary>
+        /// Lines passing through the territory of a subject of the Russian Federation.
+        /// </summary>
         public Line[] Lines
         {
             get => _lines;
         }
+        // TODO: rf
         /// <summary>
-        /// rf
+        /// Power plants located on the territory of a subject of the Russian Federation.
         /// </summary>
         public Plant[] Plants
         {
             get => _plants;
         }
+        /// <summary>
+        /// Substations located on the territory of a subject of the Russian Federation.
+        /// </summary>
         public Substation[] Substations
         {
             get => _substations;
         }
-        
-        // TODO: add
-        public GeographicalRegion Region { get; set; }
-        
-        public SubGeographicalRegion() { }
+        /// <summary>
+        /// A geographic region that unites the subjects of the Russian Federation.
+        /// </summary>
+        public GeographicalRegion Region
+        {
+            get => _region;
+            set
+            {
+                if (_region != null)
+                {
+                    _region = value;
+                    _region.AddToRegions(this);
+                }
+                else
+                {
+                    if (_region != null)
+                    {
+                        _region.RemoveFromRegions(this);
+                        _region = null;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// SubGeographicalRegion constructor.
+        /// </summary>
+        public SubGeographicalRegion() : base() { }
+        /// <summary>
+        /// SubGeographicalRegion constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         public SubGeographicalRegion(Guid mRID) : base(mRID) { }
 
         public void AddToLines(Line line)
@@ -76,7 +105,7 @@ namespace CIM
                 Array.Resize(ref _plants, _plants.Length + 1);
                 _plants[_plants.Length - 1] = plant;
 
-                plant.Region = this;
+                //plant.Region = this;
             }
         }
 
@@ -97,7 +126,7 @@ namespace CIM
 
                 _plants = tempArray;
 
-                plant.Region = null;
+                //plant.Region = null;
             }
         }
 
@@ -108,11 +137,11 @@ namespace CIM
                 Array.Resize(ref _substations, _substations.Length + 1);
                 _substations[_substations.Length - 1] = substation;
 
-                substation.Region = this;
+                //substation.Region = this;
             }
         }
 
-        public void RemoveFromSubstationsv(Substation substation)
+        public void RemoveFromSubstations(Substation substation)
         {
             if (_substations.Contains(substation))
             {
@@ -129,7 +158,7 @@ namespace CIM
 
                 _substations = tempArray;
 
-                substation.Region = null;
+                //substation.Region = null;
             }
         }
     }

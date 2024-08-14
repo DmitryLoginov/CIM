@@ -1,32 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Power plant.
+    /// </summary>
     public class Plant : EquipmentContainer
     {
-        /// <summary>
-        /// rf
-        /// </summary>
+        private SubGeographicalRegion _region;
         private Substation[] _substations = [];
 
+        // TODO: rf
         /// <summary>
-        /// rf
+        /// Subject of the Russian Federation on the territory of which the power plant is located.
         /// </summary>
-        public SubGeographicalRegion Region { get; set; }
+        public SubGeographicalRegion Region
+        {
+            get => _region;
+            set
+            {
+                if (_region != null)
+                {
+                    _region = value;
+                    _region.AddToPlants(this);
+                }
+                else
+                {
+                    if (_region != null)
+                    {
+                        _region.RemoveFromPlants(this);
+                        _region = null;
+                    }
+                }
+            }
+        }
+        // TODO: rf
         /// <summary>
-        /// rf
+        /// Power plant switchgear groups.
         /// </summary>
         public Substation[] Substations
         {
             get => _substations;
         }
 
-        public Plant() { }
+        /// <summary>
+        /// Plant constructor.
+        /// </summary>
+        public Plant() : base() { }
+        /// <summary>
+        /// Plant constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         public Plant(Guid mRID) : base(mRID) { }
 
         public void AddToSubstations(Substation substation)
@@ -36,7 +58,7 @@ namespace CIM
                 Array.Resize(ref _substations, _substations.Length + 1);
                 _substations[_substations.Length - 1] = substation;
 
-                substation.Plant = this;
+                //substation.Plant = this;
             }
         }
 
@@ -58,7 +80,7 @@ namespace CIM
 
                 _substations = tempArray;
 
-                substation.Plant = null;
+                //substation.Plant = null;
             }
         }
     }

@@ -1,25 +1,90 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Switchgear.
+    /// </summary>
     public class VoltageLevel : EquipmentContainer
     {
+        private BaseVoltage _baseVoltage;
         private Bay[] _bays = [];
-        
-        public BaseVoltage BaseVoltage { get; set; }
+        private Substation _substation;
+
+        /// <summary>
+        /// Standard rated voltage of switchgear.
+        /// </summary>
+        public BaseVoltage BaseVoltage
+        {
+            get => _baseVoltage;
+            set
+            {
+                if (value != null)
+                {
+                    _baseVoltage = value;
+                    _baseVoltage.AddToVoltageLevel(this);
+                }
+                else
+                {
+                    // TODO: error: VoltageLevel without a BaseVoltage
+                    _baseVoltage.RemoveFromVoltageLevel(this);
+                    _baseVoltage = null;
+                }
+            }
+        }
+        /// <summary>
+        /// Switchgear connections.
+        /// </summary>
         public Bay[] Bays
         {
             get => _bays;
         }
-        // TODO: ctor
-        public Substation Substation { get; set; }
+        /// <summary>
+        /// Substation, which includes a switchgear.
+        /// </summary>
+        /// <remarks>
+        /// Aggregation.
+        /// </remarks>
+        public Substation Substation
+        {
+            get => _substation;
+            set
+            {
+                if (value != null)
+                {
+                    _substation = value;
+                    _substation.AddToVoltageLevels(this);
+                }
+                else
+                {
+                    // TODO: error: VoltageLevel without a Substation
+                    _substation.RemoveFromVoltageLevels(this);
+                    _substation = null;
+                }
+            }
+        }
         
-        public VoltageLevel() { }
+        /// <summary>
+        /// VoltageLevel constructor.
+        /// </summary>
+        public VoltageLevel() : base() { }
+        /// <summary>
+        /// VoltageLevel constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         public VoltageLevel(Guid mRID) : base(mRID) { }
+        /// <summary>
+        /// VoltageLevel constructor.
+        /// </summary>
+        /// <param name="substation"><inheritdoc cref="Substation" path="/summary/node()" /></param>
+        public VoltageLevel(Substation substation) : this(Guid.NewGuid(), substation) { }
+        /// <summary>
+        /// VoltageLevel constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
+        /// <param name="substation"><inheritdoc cref="Substation" path="/summary/node()" /></param>
+        public VoltageLevel(Guid mRID, Substation substation) : base(mRID)
+        {
+            Substation = substation;
+        }
 
         public void AddToBays(Bay bay)
         {

@@ -1,16 +1,29 @@
 ﻿namespace CIM
 {
+    /// <summary>
+    /// A property object that may consist of other property objects.
+    /// </summary>
     public class AssetContainer : Asset
     {
         private Asset[] _assets = [];
-        
+
+        /// <summary>
+        /// Property objects that are part of the current property object.
+        /// </summary>
         public Asset[] Assets
         {
             get => _assets;
         }
 
-        public AssetContainer() { }
+        /// <summary>
+        /// AssetContainer constructor.
+        /// </summary>
+        public AssetContainer() : base() { }
 
+        /// <summary>
+        /// AssetContainer constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         public AssetContainer(Guid mRID) : base(mRID) { }
 
         public void AddToAssets(Asset asset)
@@ -20,7 +33,7 @@
                 Array.Resize(ref _assets, _assets.Length + 1);
                 _assets[_assets.Length - 1] = asset;
 
-                asset.AssetContainer = this;
+                //asset.AssetContainer = this;
             }
         }
 
@@ -41,7 +54,7 @@
 
                 _assets = tempArray;
 
-                asset.AssetContainer = null;
+                //asset.AssetContainer = null;
             }
         }
     }

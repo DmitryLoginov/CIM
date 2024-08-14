@@ -1,34 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Standard rated voltage.
+    /// </summary>
     public class BaseVoltage : IdentifiedObject
     {
-        private int _nominalVoltage;
-
+        private int? _nominalVoltage;
         private ConductingEquipment[] _conductingEquipment = [];
-
-        private TransformerEnd[] _transformerEnd = [];
-
+        private TransformerEnd[] _transformerEnds = [];
         private VoltageLevel[] _voltageLevel = [];
 
         /// <summary>
-        /// rf
+        /// Indication that the rated voltage value is DC voltage.
         /// </summary>
+        /// <remarks>
+        /// rf
+        /// </remarks>
         public bool isDC { get; set; } = false;
 
-        public int nominalVoltage
+        /// <summary>
+        /// Rated voltage value, kV.
+        /// </summary>
+        public int? nominalVoltage
         {
-            get
-            {
-                return _nominalVoltage;
-            }
+            get => _nominalVoltage;
             set
             {
+                // TODO: null
                 if (value < 0)
                 {
                     throw new FormatException("nominalVoltage must be zero or positive value");
@@ -40,24 +38,54 @@ namespace CIM
             }
         }
 
+        /// <summary>
+        /// Electrically conductive equipment related to standard voltage rating.
+        /// </summary>
         public ConductingEquipment[] ConductingEquipment
         {
             get => _conductingEquipment;
         }
 
-        public TransformerEnd[] TransformerEnd
+        /// <summary>
+        /// Transformer bushings related to standard rated voltage.
+        /// </summary>
+        public TransformerEnd[] TransformerEnds
         {
-            get => _transformerEnd;
+            get => _transformerEnds;
         }
 
+        /// <summary>
+        /// Switchgears related to standard rated voltage.
+        /// </summary>
         public VoltageLevel[] VoltageLevel
         {
             get => _voltageLevel;
         }
 
-        public BaseVoltage() { }
+        /// <summary>
+        /// BaseVoltage constructor.
+        /// </summary>
+        public BaseVoltage() : this(Guid.NewGuid(), null) { }
 
-        public BaseVoltage(Guid mRID) : base(mRID) { }
+        /// <summary>
+        /// BaseVoltage constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
+        public BaseVoltage(Guid mRID) : this(mRID, null) { }
+        /// <summary>
+        /// BaseVoltage constructor.
+        /// </summary>
+        /// <param name="nominalVoltage"><inheritdoc cref="nominalVoltage" path="/summary/node()" /></param>
+        public BaseVoltage(int? nominalVoltage) : this(Guid.NewGuid(), nominalVoltage) { }
+        /// <summary>
+        /// BaseVoltage constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
+        /// <param name="nominalVoltage"><inheritdoc cref="nominalVoltage" path="/summary/node()" /></param>
+        public BaseVoltage(Guid mRID, int? nominalVoltage) : base(mRID)
+        {
+            this.nominalVoltage = nominalVoltage;
+        }
 
         public void AddToConductingEquipment(ConductingEquipment conductingEquipment)
         {
@@ -66,11 +94,11 @@ namespace CIM
                 Array.Resize(ref _conductingEquipment, _conductingEquipment.Length + 1);
                 _conductingEquipment[_conductingEquipment.Length - 1] = conductingEquipment;
 
-                conductingEquipment.BaseVoltage = this;
+                //conductingEquipment.BaseVoltage = this;
             }
         }
 
-        public void RemoveFromPowerSystemResource(ConductingEquipment conductingEquipment)
+        public void RemoveFromConductingEquipment(ConductingEquipment conductingEquipment)
         {
             if (_conductingEquipment.Contains(conductingEquipment))
             {
@@ -87,39 +115,39 @@ namespace CIM
 
                 _conductingEquipment = tempArray;
 
-                conductingEquipment.BaseVoltage = null;
+                //conductingEquipment.BaseVoltage = null;
             }
         }
 
         public void AddToTransformerEnd(TransformerEnd transformerEnd)
         {
-            if (!_transformerEnd.Contains(transformerEnd))
+            if (!_transformerEnds.Contains(transformerEnd))
             {
-                Array.Resize(ref _transformerEnd, _transformerEnd.Length + 1);
-                _transformerEnd[_transformerEnd.Length - 1] = transformerEnd;
+                Array.Resize(ref _transformerEnds, _transformerEnds.Length + 1);
+                _transformerEnds[_transformerEnds.Length - 1] = transformerEnd;
 
-                transformerEnd.BaseVoltage = this;
+                //transformerEnd.BaseVoltage = this;
             }
         }
 
         public void RemoveFromTransformerEnd(TransformerEnd transformerEnd)
         {
-            if (_transformerEnd.Contains(transformerEnd))
+            if (_transformerEnds.Contains(transformerEnd))
             {
                 TransformerEnd[] tempArray = [];
 
-                for (int i = 0; i < _transformerEnd.Length; i++)
+                for (int i = 0; i < _transformerEnds.Length; i++)
                 {
-                    if (_transformerEnd[i].mRID != transformerEnd.mRID)
+                    if (_transformerEnds[i].mRID != transformerEnd.mRID)
                     {
                         Array.Resize(ref tempArray, tempArray.Length + 1);
-                        tempArray[tempArray.Length - 1] = _transformerEnd[i];
+                        tempArray[tempArray.Length - 1] = _transformerEnds[i];
                     }
                 }
 
-                _transformerEnd = tempArray;
+                _transformerEnds = tempArray;
 
-                transformerEnd.BaseVoltage = null;
+                //transformerEnd.BaseVoltage = null;
             }
         }
 
@@ -130,7 +158,7 @@ namespace CIM
                 Array.Resize(ref _voltageLevel, _voltageLevel.Length + 1);
                 _voltageLevel[_voltageLevel.Length - 1] = voltageLevel;
 
-                voltageLevel.BaseVoltage = this;
+                //voltageLevel.BaseVoltage = this;
             }
         }
 
@@ -151,7 +179,7 @@ namespace CIM
 
                 _voltageLevel = tempArray;
 
-                voltageLevel.BaseVoltage = null;
+                //voltageLevel.BaseVoltage = null;
             }
         }
     }

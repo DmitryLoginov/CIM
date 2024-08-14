@@ -1,21 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Boiler.
+    /// </summary>
     public abstract class SteamSupply : PowerSystemResource
     {
         private SteamTurbine[] _steamTurbines = [];
 
+        /// <summary>
+        /// Steam turbines supplied by a boiler.
+        /// </summary>
         public SteamTurbine[] SteamTurbines
         {
             get => _steamTurbines;
         }
-        
-        protected SteamSupply() { }
+
+        /// <summary>
+        /// SteamSupply constructor.
+        /// </summary>
+        protected SteamSupply() : base() { }
+        /// <summary>
+        /// SteamSupply constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         protected SteamSupply(Guid mRID) : base(mRID) { }
 
         public void AddToSteamTurbines(SteamTurbine steamTurbine)

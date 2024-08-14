@@ -1,52 +1,59 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Heat recovery boiler.
+    /// </summary>
     public class HeatRecoveryBoiler : FossilSteamSupply
     {
-        private CombustionTurbine[] _combustionTurbines = [];
+        private CombustionTurbine[] _combustionTurbine = [];
 
-        public CombustionTurbine[] CombustionTurbines
+        /// <summary>
+        /// Gas turbine of waste heat boiler.
+        /// </summary>
+        public CombustionTurbine[] CombustionTurbine
         {
-            get => _combustionTurbines;
+            get => _combustionTurbine;
         }
-        
-        public HeatRecoveryBoiler() { }
+
+        /// <summary>
+        /// HeatRecoveryBoiler constructor.
+        /// </summary>
+        public HeatRecoveryBoiler() : base() { }
+        /// <summary>
+        /// HeatRecoveryBoiler constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         public HeatRecoveryBoiler(Guid mRID) : base(mRID) { }
 
-        public void AddToCombustionTurbines(CombustionTurbine combustionTurbine)
+        public void AddToCombustionTurbine(CombustionTurbine combustionTurbine)
         {
-            if (!_combustionTurbines.Contains(combustionTurbine))
+            if (!_combustionTurbine.Contains(combustionTurbine))
             {
-                Array.Resize(ref _combustionTurbines, _combustionTurbines.Length + 1);
-                _combustionTurbines[_combustionTurbines.Length - 1] = combustionTurbine;
+                Array.Resize(ref _combustionTurbine, _combustionTurbine.Length + 1);
+                _combustionTurbine[_combustionTurbine.Length - 1] = combustionTurbine;
 
-                combustionTurbine.HeatRecoveryBoiler = this;
+                //combustionTurbine.HeatRecoveryBoiler = this;
             }
         }
 
-        public void RemoveFromCombustionTurbines(CombustionTurbine combustionTurbine)
+        public void RemoveFromCombustionTurbine(CombustionTurbine combustionTurbine)
         {
-            if (_combustionTurbines.Contains(combustionTurbine))
+            if (_combustionTurbine.Contains(combustionTurbine))
             {
                 CombustionTurbine[] tempArray = [];
 
-                for (int i = 0; i < _combustionTurbines.Length; i++)
+                for (int i = 0; i < _combustionTurbine.Length; i++)
                 {
-                    if (_combustionTurbines[i].mRID != combustionTurbine.mRID)
+                    if (_combustionTurbine[i].mRID != combustionTurbine.mRID)
                     {
                         Array.Resize(ref tempArray, tempArray.Length + 1);
-                        tempArray[tempArray.Length - 1] = _combustionTurbines[i];
+                        tempArray[tempArray.Length - 1] = _combustionTurbine[i];
                     }
                 }
 
-                _combustionTurbines = tempArray;
+                _combustionTurbine = tempArray;
 
-                combustionTurbine.HeatRecoveryBoiler = null;
+                //combustionTurbine.HeatRecoveryBoiler = null;
             }
         }
     }

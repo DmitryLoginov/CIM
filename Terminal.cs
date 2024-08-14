@@ -1,28 +1,105 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Pole of electrically conductive equipment.
+    /// </summary>
+    /// <remarks>
+    /// A model element to represent an electrical connection to electrically conductive equipment.
+    /// </remarks>
     public class Terminal : ACDCTerminal
     {
         private AuxiliaryEquipment[] _auxiliaryEquipment = [];
+        private ConductingEquipment _conductingEquipment;
+        private ConnectivityNode _connectivityNode;
         private TransformerEnd[] _transformerEnd = [];
-        
+
+        /// <summary>
+        /// Auxiliary equipment connected to a pole of electrically conductive equipment.
+        /// </summary>
         public AuxiliaryEquipment[] AuxiliaryEquipment
         {
             get => _auxiliaryEquipment;
         }
-        public ConductingEquipment ConductingEquipment { get; set; }
-        public ConnectivityNode ConnectivityNode { get; set; }
+        /// <summary>
+        /// Electrically conductive equipment to which the pole belongs.
+        /// </summary>
+        public ConductingEquipment ConductingEquipment
+        {
+            get => _conductingEquipment;
+            set
+            {
+                if (value != null)
+                {
+                    _conductingEquipment = value;
+                    value.AddToTerminals(this);
+                }
+                else
+                {
+                    // TODO: error: Terminal without ConductingEquipment
+                    _conductingEquipment.RemoveFromTerminals(this);
+                    _conductingEquipment = null;
+                }
+            }
+        }
+        /// <summary>
+        /// Pole connection unit.
+        /// </summary>
+        public ConnectivityNode ConnectivityNode
+        {
+            get => _connectivityNode;
+            set
+            {
+                if (value != null)
+                {
+                    _connectivityNode = value;
+                    value.AddToTerminals(this);
+                }
+                else
+                {
+                    // TODO: error: Terminal without ConnectivityNode
+                    _connectivityNode.RemoveFromTerminals(this);
+                    _connectivityNode = null;
+                }
+            }
+        }
+        /// <summary>
+        /// Transformer terminals to which the pole is connected.
+        /// </summary>
+        /// <remarks>
+        /// Aggregation.
+        /// </remarks>
         public TransformerEnd[] TransformerEnd
         {
             get => _transformerEnd;
         }
-
-        public Terminal(ConductingEquipment conductingEquipment)
+        // TODO: does constructor should take sequenceNumber? if it does, there's should be a validation
+        /// <summary>
+        /// Terminal constructor.
+        /// </summary>
+        /// <param name="conductingEquipment"><inheritdoc cref="ConductingEquipment" path="/summary/node()" /></param>
+        public Terminal(ConductingEquipment conductingEquipment) : this(conductingEquipment, Guid.NewGuid()) { }
+        // TODO: mrid??
+        /// <summary>
+        /// Terminal constructor.
+        /// </summary>
+        /// <param name="conductingEquipment"><inheritdoc cref="ConductingEquipment" path="/summary/node()" /></param>
+        /// <param name="mRID"><inheritdoc cref="mRID" path="/summary/node()" /></param>
+        public Terminal(ConductingEquipment conductingEquipment, Guid mRID) 
+            : this(1, conductingEquipment, mRID) { }
+        /// <summary>
+        /// Terminal constructor.
+        /// </summary>
+        /// <param name="sequenceNumber"><inheritdoc cref="ACDCTerminal.sequenceNumber" path="/summary/node()" /></param>
+        /// <param name="conductingEquipment"><inheritdoc cref="ConductingEquipment" path="/summary/node()" /></param>
+        public Terminal(int sequenceNumber, ConductingEquipment conductingEquipment) 
+            : this(sequenceNumber, conductingEquipment, Guid.NewGuid()) { }
+        /// <summary>
+        /// Terminal constructor.
+        /// </summary>
+        /// <param name="sequenceNumber"><inheritdoc cref="ACDCTerminal.sequenceNumber" path="/summary/node()" /></param>
+        /// <param name="conductingEquipment"><inheritdoc cref="ConductingEquipment" path="/summary/node()" /></param>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
+        public Terminal(int sequenceNumber, ConductingEquipment conductingEquipment, Guid mRID) : base(mRID, sequenceNumber)
         {
             ConductingEquipment = conductingEquipment;
             if (conductingEquipment.Terminals.Length != 0)
@@ -33,26 +110,6 @@ namespace CIM
             {
                 sequenceNumber = 1;
             }
-        }
-        public Terminal(ConductingEquipment conductingEquipment, Guid mRID) : base(mRID)
-        {
-            ConductingEquipment = conductingEquipment;
-            if (conductingEquipment.Terminals.Length != 0)
-            {
-                sequenceNumber = conductingEquipment.Terminals.Max(terminal => terminal.sequenceNumber) + 1;
-            }
-            else
-            {
-                sequenceNumber = 1;
-            }
-        }
-        public Terminal(int sequenceNumber, ConductingEquipment conductingEquipment) : base(sequenceNumber)
-        {
-            ConductingEquipment = conductingEquipment;
-        }
-        public Terminal(int sequenceNumber, ConductingEquipment conductingEquipment, Guid mRID) : base(sequenceNumber, mRID)
-        {
-            ConductingEquipment = conductingEquipment;
         }
 
         public void AddToAuxiliaryEquipment(AuxiliaryEquipment auxiliaryEquipment)
@@ -62,7 +119,7 @@ namespace CIM
                 Array.Resize(ref _auxiliaryEquipment, _auxiliaryEquipment.Length + 1);
                 _auxiliaryEquipment[_auxiliaryEquipment.Length - 1] = auxiliaryEquipment;
 
-                auxiliaryEquipment.Terminal = this;
+                //auxiliaryEquipment.Terminal = this;
             }
         }
 
@@ -83,7 +140,7 @@ namespace CIM
 
                 _auxiliaryEquipment = tempArray;
 
-                auxiliaryEquipment.Terminal = null;
+                //auxiliaryEquipment.Terminal = null;
             }
         }
 
@@ -94,7 +151,7 @@ namespace CIM
                 Array.Resize(ref _transformerEnd, _transformerEnd.Length + 1);
                 _transformerEnd[_transformerEnd.Length - 1] = transformerEnd;
 
-                transformerEnd.Terminal = this;
+                //transformerEnd.Terminal = this;
             }
         }
 
@@ -115,7 +172,7 @@ namespace CIM
 
                 _transformerEnd = tempArray;
 
-                transformerEnd.Terminal = null;
+                //transformerEnd.Terminal = null;
             }
         }
     }

@@ -1,28 +1,51 @@
 ﻿namespace CIM
 {
+    /// <summary>
+    /// Property object.
+    /// </summary>
     public class Asset : IdentifiedObject
     {
-        private AssetContainer _assetContainer;
-
+        private AssetContainer? _assetContainer;
         private PowerSystemResource[] _powerSystemResource = [];
 
+        /// <summary>
+        /// Energy system objects associated with a property object.
+        /// </summary>
         public PowerSystemResource[] PowerSystemResource
         {
             get => _powerSystemResource;
         }
 
-        public AssetContainer AssetContainer
+        /// <summary>
+        /// A property object that includes a current property object.
+        /// </summary>
+        public AssetContainer? AssetContainer
         {
             get => _assetContainer;
             set
             {
-                _assetContainer = value;
-                _assetContainer.AddToAssets(this);
+                if (value != null)
+                {
+                    _assetContainer = value;
+                    value.AddToAssets(this);
+                }
+                else
+                {
+                    _assetContainer.RemoveFromAssets(this);
+                    _assetContainer = null;
+                }
             }
         }
 
-        public Asset() { }
+        /// <summary>
+        /// Asset constructor.
+        /// </summary>
+        public Asset() : base() { }
 
+        /// <summary>
+        /// Asset constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         public Asset(Guid mRID) : base(mRID) { }
 
         public void AddToPowerSystemResource(PowerSystemResource powerSystemResource)

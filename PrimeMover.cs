@@ -1,30 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace CIM
+﻿namespace CIM
 {
     /// <summary>
-    /// rf
+    /// Prime mover.
     /// </summary>
     public abstract class PrimeMover : PowerSystemResource
     {
+        private AsynchronousMachine? _asynchronousMachine;
         private SynchronousMachine[] _synchronousMachines = [];
 
+        // TODO: rf
         /// <summary>
-        /// rf
+        /// Asynchronous generator connected to the prime mover.
         /// </summary>
-        public AsynchronousMachine AsynchronousMachine { get; set; }
+        public AsynchronousMachine? AsynchronousMachine
+        {
+            get => _asynchronousMachine;
+            set
+            {
+                if (_asynchronousMachine != null)
+                {
+                    _asynchronousMachine = value;
+                    _asynchronousMachine.PrimeMover = this;
+                }
+                else
+                {
+                    if (_asynchronousMachine != null)
+                    {
+                        _asynchronousMachine.PrimeMover = null;
+                        _asynchronousMachine = null;
+                    }
+                }
+            }
+        }
 
+        /// <summary>
+        /// Synchronous generator connected to the prime mover.
+        /// </summary>
         public SynchronousMachine[] SynchronousMachines
         {
             get => _synchronousMachines;
         }
 
-        protected PrimeMover() { }
+        /// <summary>
+        /// PrimeMover constructor.
+        /// </summary>
+        protected PrimeMover() : base() { }
+        /// <summary>
+        /// PrimeMover constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         protected PrimeMover(Guid mRID) : base(mRID) { }
 
         public void AddToSynchronousMachines(SynchronousMachine synchronousMachine)

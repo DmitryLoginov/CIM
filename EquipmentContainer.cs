@@ -1,26 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Equipment container.
+    /// </summary>
     public abstract class EquipmentContainer : ConnectivityNodeContainer
     {
         private Equipment[] _equipments = [];
         private Equipment[] _additionalGroupedEquipment = [];
 
+        /// <summary>
+        /// Items of equipment belonging to an equipment container.
+        /// </summary>
         public Equipment[] Equipments
         {
             get => _equipments;
         }
+        /// <summary>
+        /// Items of equipment having an additional association with an equipment container.
+        /// </summary>
         public Equipment[] AdditionalGroupedEquipment
         {
             get => _additionalGroupedEquipment;
         }
-        
-        protected EquipmentContainer() { }
+
+        /// <summary>
+        /// EquipmentContainer constructor.
+        /// </summary>
+        protected EquipmentContainer() : base() { }
+        /// <summary>
+        /// EquipmentContainer constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         protected EquipmentContainer(Guid mRID) : base(mRID) { }
 
         public void AddToEquipments(Equipment equipment)
@@ -30,7 +40,7 @@ namespace CIM
                 Array.Resize(ref _equipments, _equipments.Length + 1);
                 _equipments[_equipments.Length - 1] = equipment;
 
-                equipment.EquipmentContainer = this;
+                //equipment.EquipmentContainer = this;
             }
         }
 
@@ -51,7 +61,7 @@ namespace CIM
 
                 _equipments = tempArray;
 
-                equipment.EquipmentContainer = null;
+                //equipment.EquipmentContainer = null;
             }
         }
 

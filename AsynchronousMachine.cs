@@ -1,19 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Asynchronous machine.
+    /// </summary>
     public class AsynchronousMachine : RotatingMachine
     {
+        private PrimeMover? _primeMover;
+
         /// <summary>
-        /// rf
+        /// Asynchronous generator prime mover.
         /// </summary>
-        public PrimeMover PrimeMover { get; set; }
-        
-        public AsynchronousMachine() { }
+        /// <remarks>
+        /// rf
+        /// </remarks>
+        public PrimeMover? PrimeMover
+        {
+            get => _primeMover;
+            set
+            {
+                if (value != null)
+                {
+                    _primeMover = value;
+                    value.AsynchronousMachine = this;
+                }
+                else
+                {
+                    _primeMover.AsynchronousMachine = null;
+                    _primeMover = null;
+                }
+            }
+        }
+
+        /// <summary>
+        /// AsynchronousMachine constructor.
+        /// </summary>
+        public AsynchronousMachine() : base() { }
+        /// <summary>
+        /// AsynchronousMachine constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         public AsynchronousMachine(Guid mRID) : base(mRID) { }
     }
 }

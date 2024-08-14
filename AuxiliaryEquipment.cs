@@ -1,38 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Auxiliary equipment.
+    /// </summary>
     public abstract class AuxiliaryEquipment : Equipment
     {
-        //private Terminal _terminal;
+        private Terminal _terminal;
 
-        // TODO: add
-        public Terminal Terminal { get; set; }
-        //{
-        //    get => _terminal;
-        //    set
-        //    {
-        //        if (value == null)
-        //        {
-        //            throw new FormatException("AuxiliaryEquipment must be associated with Terminal of ConductingEquipment");
-        //        }
-        //        else
-        //        {
-        //            _terminal = value;
-        //        }
-        //    }
-        //}
-
-        protected AuxiliaryEquipment() { }
-        protected AuxiliaryEquipment(Guid mRID) : base(mRID) { }
-        protected AuxiliaryEquipment(Terminal terminal)
+        /// <summary>
+        /// Auxiliary equipment pole. 
+        /// </summary>
+        public Terminal Terminal
         {
-            Terminal = terminal;
+            get => _terminal;
+            set
+            {
+                if (value != null)
+                {
+                    _terminal = value;
+                    value.AddToAuxiliaryEquipment(this);
+                }
+                else
+                {
+                    // TODO: error: AuxiliaryEquipment without a Terminal
+                    _terminal.RemoveFromAuxiliaryEquipment(this);
+                    _terminal = null;
+                }
+            }
         }
+
+        /// <summary>
+        /// AuxiliaryEquipment constructor.
+        /// </summary>
+        protected AuxiliaryEquipment() : base() { }
+        /// <summary>
+        /// AuxiliaryEquipment constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
+        protected AuxiliaryEquipment(Guid mRID) : base(mRID) { }
+        /// <summary>
+        /// AuxiliaryEquipment constructor.
+        /// </summary>
+        /// <param name="terminal"><inheritdoc cref="Terminal" path="/summary/node()" /></param>
+        protected AuxiliaryEquipment(Terminal terminal) 
+            : this(terminal, Guid.NewGuid()) { }
+        /// <summary>
+        /// AuxiliaryEquipment constructor.
+        /// </summary>
+        /// <param name="terminal"><inheritdoc cref="Terminal" path="/summary/node()" /></param>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         protected AuxiliaryEquipment(Terminal terminal, Guid mRID) : base(mRID)
         {
             Terminal = terminal;

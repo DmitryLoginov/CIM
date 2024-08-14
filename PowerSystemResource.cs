@@ -1,24 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Generalized energy system object.
+    /// </summary>
     public abstract class PowerSystemResource : IdentifiedObject
     {
         private Asset[] _assets = [];
+        private PSRType? _psrType;
 
-        public AssetInfo AssetDataSheet { get; set; }
+        /// <summary>
+        /// Property objects associated with the energy system object.
+        /// </summary>
         public Asset[] Assets
         {
             get => _assets;
         }
-        public PSRType PSRType { get; set; }
+        /// <summary>
+        /// Additional classifier.
+        /// </summary>
+        public PSRType? PSRType
+        {
+            get => _psrType;
+            set
+            {
+                if (value != null)
+                {
+                    _psrType = value;
+                    value.AddToPowerSystemResources(this);
+                }
+                else
+                {
+                    if (_psrType != null)
+                    {
+                        _psrType.RemoveFromPowerSystemResources(this);
+                        _psrType = null;
+                    }
+                }
+            }
+        }
 
-        protected PowerSystemResource() { }
+        /// <summary>
+        /// PowerSystemResource constructor.
+        /// </summary>
+        protected PowerSystemResource() : base() { }
+
+        /// <summary>
+        /// PowerSystemResource constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         protected PowerSystemResource(Guid mRID) : base(mRID) { }
 
         public void AddToAssets(Asset asset)
@@ -40,7 +69,6 @@ namespace CIM
 
                 for (int i = 0; i < _assets.Length; i++)
                 {
-                    // TODO: name and nameType
                     if (_assets[i].mRID != asset.mRID)
                     {
                         Array.Resize(ref tempArray, tempArray.Length + 1);

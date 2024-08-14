@@ -1,19 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Equipment.
+    /// </summary>
     public abstract class Equipment : PowerSystemResource
     {
-        private EquipmentContainer _equipmentContainer;
-
+        private EquipmentContainer? _equipmentContainer;
         private EquipmentContainer[] _additionalEquipmentContainer = [];
-        
-        // TODO: remove from equipmentContainer and other containers
-        public EquipmentContainer EquipmentContainer
+
+        /// <summary>
+        /// Equipment container to which the item of equipment belongs.
+        /// </summary>
+        /// <remarks>
+        /// Aggregation.
+        /// </remarks>
+        public EquipmentContainer? EquipmentContainer
         {
             get => _equipmentContainer;
             set
@@ -30,13 +31,33 @@ namespace CIM
                 }
             }
         }
+
+        /// <summary>
+        /// Additional association of equipment with another container.
+        /// </summary>
+        /// <remarks>
+        /// For example, a switch and other equipment in a bay may be associated 
+        /// with a power transmission line, or a section of a power transmission line 
+        /// may be associated with substation bays (substations).
+        /// </remarks>
         public EquipmentContainer[] AdditionalEquipmentContainer
         {
             get => _additionalEquipmentContainer;
         }
+
+        /// <summary>
+        /// The assigned value <see cref="true"/> indicates that the equipment is in operation.
+        /// </summary>
         public bool normallyInService { get; set; } = true;
 
-        protected Equipment() { }
+        /// <summary>
+        /// Equipment constructor.
+        /// </summary>
+        protected Equipment() : base() { }
+        /// <summary>
+        /// Equipment constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         protected Equipment(Guid mRID) : base(mRID) { }
 
         public void AddToAdditionalEquipmentContainer(EquipmentContainer equipmentContainer)

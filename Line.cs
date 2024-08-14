@@ -1,22 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Power transmission line.
+    /// </summary>
     public class Line : EquipmentContainer
     {
         private SubGeographicalRegion[] _region = [];
 
+        /// <summary>
+        /// Subjects of the Russian Federation through whose territory the power transmission line passes.
+        /// </summary>
         public SubGeographicalRegion[] Region
         {
             get => _region;
         }
         
-        public Line() { }
+        /// <summary>
+        /// Line constructor.
+        /// </summary>
+        public Line() : base() { }
+        /// <summary>
+        /// Line constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         public Line(Guid mRID) : base(mRID) { }
 
         public void AddToRegion(SubGeographicalRegion subGeographicalRegion)

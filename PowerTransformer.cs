@@ -1,22 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Power transformer.
+    /// </summary>
     public class PowerTransformer : ConductingEquipment
     {
         private PowerTransformerEnd[] _powerTransformerEnd = [];
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string vectorGroup { get; set; }
+        /// <summary>
+        /// Electrical terminals of the power transformer.
+        /// </summary>
         public PowerTransformerEnd[] PowerTransformerEnd
         {
             get => _powerTransformerEnd;
         }
 
-        public PowerTransformer() { }
+        /// <summary>
+        /// PowerTransformer constructor.
+        /// </summary>
+        public PowerTransformer() : base() { }
+        /// <summary>
+        /// PowerTransformer constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         public PowerTransformer(Guid mRID) : base(mRID) { }
 
         public void AddToPowerTransformerEnd(PowerTransformerEnd powerTransformerEnd)
@@ -26,7 +36,7 @@ namespace CIM
                 Array.Resize(ref _powerTransformerEnd, _powerTransformerEnd.Length + 1);
                 _powerTransformerEnd[_powerTransformerEnd.Length - 1] = powerTransformerEnd;
 
-                powerTransformerEnd.PowerTransformer = this;
+                //powerTransformerEnd.PowerTransformer = this;
             }
         }
 
@@ -48,7 +58,7 @@ namespace CIM
 
                 _powerTransformerEnd = tempArray;
 
-                powerTransformerEnd.PowerTransformer = null;
+                //powerTransformerEnd.PowerTransformer = null;
             }
         }
     }

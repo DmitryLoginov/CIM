@@ -1,20 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Switchgear bay.
+    /// </summary>
+    /// <remarks>
+    /// A class intended to group equipment, usually designating a bay of switchgear.
+    /// </remarks>
     public class Bay : EquipmentContainer
     {
-        private VoltageLevel _voltageLevel;
+        private VoltageLevel? _voltageLevel;
 
-        public VoltageLevel VoltageLevel
+        /// <summary>
+        /// The switchgear to which the connection belongs.
+        /// </summary>
+        public VoltageLevel? VoltageLevel
         {
             get => _voltageLevel;
             set
             {
+                if (value != null)
+                {
+                    _voltageLevel = value;
+                    value.AddToBays(this);
+                }
+                else
+                {
+                    // TODO: error: Bay without a VoltageLevel
+                    _voltageLevel.RemoveFromBays(this);
+                    _voltageLevel = null;
+                }
+            }
+            /*get => _voltageLevel;
+            set
+            {
+                // TODO: allow null
                 if (value == null)
                 {
                     throw new FormatException("Bay must be associated with VoltageLevel");
@@ -23,18 +42,23 @@ namespace CIM
                 {
                     _voltageLevel = value;
                 }
-            }
+            }*/
         }
 
+        // TODO: null Bay
         /// <summary>
-        /// doubtful but okay?
+        /// Bay constructor.
         /// </summary>
-        /// <param name="voltageLevel"></param>
+        /// <param name="voltageLevel"><inheritdoc cref="VoltageLevel" path="/summary/node()" /></param>
         public Bay(VoltageLevel voltageLevel)
         {
             VoltageLevel = voltageLevel;
         }
-
+        /// <summary>
+        /// Bay constructor.
+        /// </summary>
+        /// <param name="voltageLevel"><inheritdoc cref="VoltageLevel" path="/summary/node()" /></param>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         public Bay(VoltageLevel voltageLevel, Guid mRID) : base(mRID)
         {
             VoltageLevel = voltageLevel;

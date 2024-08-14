@@ -1,21 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Transformation ratio regulator.
+    /// </summary>
     public class RatioTapChanger : TapChanger
     {
-        public TransformerEnd TransformerEnd { get; set; }
+        private TransformerEnd _transformerEnd;
 
-        public RatioTapChanger() { }
-        public RatioTapChanger(Guid mRID) : base(mRID) { }
-        public RatioTapChanger(TransformerEnd transformerEnd)
+        /// <summary>
+        /// The output of the power transformer, to which the control tap switch with longitudinal regulation belongs.
+        /// </summary>
+        public TransformerEnd TransformerEnd
         {
-            TransformerEnd = transformerEnd;
+            get => _transformerEnd;
+            set
+            {
+                if (_transformerEnd != null)
+                {
+                    _transformerEnd = value;
+                    _transformerEnd.RatioTapChanger = this;
+                }
+                else
+                {
+                    if (_transformerEnd != null)
+                    {
+                        _transformerEnd.RatioTapChanger = null;
+                        _transformerEnd = null;
+                    }
+                }
+            }
         }
+
+        /// <summary>
+        /// RatioTapChanger constructor.
+        /// </summary>
+        public RatioTapChanger() { }
+        /// <summary>
+        /// RatioTapChanger constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
+        public RatioTapChanger(Guid mRID) : base(mRID) { }
+        /// <summary>
+        /// RatioTapChanger constructor.
+        /// </summary>
+        /// <param name="transformerEnd"><inheritdoc cref="TransformerEnd" path="/summary/node()" /></param>
+        public RatioTapChanger(TransformerEnd transformerEnd) 
+            : this(Guid.NewGuid(), transformerEnd) { }
+        /// <summary>
+        /// RatioTapChanger constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
+        /// <param name="transformerEnd"><inheritdoc cref="TransformerEnd" path="/summary/node()" /></param>
         public RatioTapChanger(Guid mRID, TransformerEnd transformerEnd) : base(mRID)
         {
             TransformerEnd = transformerEnd;

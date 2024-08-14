@@ -1,21 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Synchronous machine.
+    /// </summary>
     public class SynchronousMachine : RotatingMachine
     {
         private PrimeMover[] _primeMovers = [];
 
+        /// <summary>
+        /// Synchronous generator prime mover.
+        /// </summary>
         public PrimeMover[] PrimeMovers
         {
             get => _primeMovers;
         }
-        
-        public SynchronousMachine() { }
+
+        /// <summary>
+        /// SynchronousMachine constructor.
+        /// </summary>
+        public SynchronousMachine() : base() { }
+        /// <summary>
+        /// SynchronousMachine constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         public SynchronousMachine(Guid mRID) : base(mRID) { }
 
         public void AddToPrimeMovers(PrimeMover primeMover)

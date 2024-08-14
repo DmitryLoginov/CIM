@@ -1,33 +1,59 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Organization.
+    /// </summary>
     public class Organisation : IdentifiedObject
     {
-        /// <summary>
-        /// rf
-        /// </summary>
         private Organisation[] _childOrganisations = [];
         private OrganisationRole[] _roles = [];
+        private Organisation? _parentOrganisation;
 
+        // TODO: rf
         /// <summary>
-        /// rf
+        /// Subsidiaries and dependent organizations, branches.
         /// </summary>
         public Organisation[] ChildOrganisations
         {
             get => _childOrganisations;
         }
+        // TODO: rf
         /// <summary>
-        /// rf
+        /// Parent organization, branch.
         /// </summary>
-        public Organisation ParentOrganisation { get; set; }
-        public OrganisationRole[] Roles { get; set; }
+        public Organisation? ParentOrganisation
+        {
+            get => _parentOrganisation;
+            set
+            {
+                if (value != null)
+                {
+                    _parentOrganisation = value;
+                    value.AddToChildOrganisations(this);
+                }
+                else
+                {
+                    _parentOrganisation.RemoveFromChildOrganisations(this);
+                    _parentOrganisation = null;
+                }
+            }
+        }
+        /// <summary>
+        /// Roles performed by the organization.
+        /// </summary>
+        public OrganisationRole[] Roles
+        {
+            get => _roles;
+        }
 
-        public Organisation() { }
+        /// <summary>
+        /// Organisation constructor.
+        /// </summary>
+        public Organisation() : base() { }
+        /// <summary>
+        /// Organisation constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
         public Organisation(Guid mRID) : base(mRID) { }
 
         public void AddToChildOrganisations(Organisation childOrganisation)
@@ -37,7 +63,7 @@ namespace CIM
                 Array.Resize(ref _childOrganisations, _childOrganisations.Length + 1);
                 _childOrganisations[_childOrganisations.Length - 1] = childOrganisation;
 
-                childOrganisation.ParentOrganisation = this;
+                //childOrganisation.ParentOrganisation = this;
             }
         }
 
@@ -58,7 +84,7 @@ namespace CIM
 
                 _childOrganisations = tempArray;
 
-                childOrganisation.ParentOrganisation = null;
+                //childOrganisation.ParentOrganisation = null;
             }
         }
 
@@ -69,7 +95,7 @@ namespace CIM
                 Array.Resize(ref _roles, _roles.Length + 1);
                 _roles[_roles.Length - 1] = organisationRole;
 
-                organisationRole.Organisation = this;
+                //organisationRole.Organisation = this;
             }
         }
 
@@ -90,7 +116,7 @@ namespace CIM
 
                 _roles = tempArray;
 
-                organisationRole.Organisation = null;
+                //organisationRole.Organisation = null;
             }
         }
     }
