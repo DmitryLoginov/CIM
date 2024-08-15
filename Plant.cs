@@ -56,7 +56,7 @@
             if (!_substations.Contains(substation))
             {
                 Array.Resize(ref _substations, _substations.Length + 1);
-                _substations[_substations.Length - 1] = substation;
+                _substations[^1] = substation;
 
                 //substation.Plant = this;
             }
@@ -74,7 +74,7 @@
                     if (_substations[i].mRID != substation.mRID)
                     {
                         Array.Resize(ref tempArray, tempArray.Length + 1);
-                        tempArray[tempArray.Length - 1] = _substations[i];
+                        tempArray[^1] = _substations[i];
                     }
                 }
 

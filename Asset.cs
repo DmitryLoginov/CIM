@@ -9,7 +9,7 @@
         private PowerSystemResource[] _powerSystemResource = [];
 
         /// <summary>
-        /// Energy system objects associated with a property object.
+        /// Power system objects associated with a property object.
         /// </summary>
         public PowerSystemResource[] PowerSystemResource
         {
@@ -31,8 +31,11 @@
                 }
                 else
                 {
-                    _assetContainer.RemoveFromAssets(this);
-                    _assetContainer = null;
+                    if (_assetContainer != null)
+                    {
+                        _assetContainer.RemoveFromAssets(this);
+                        _assetContainer = null;
+                    }
                 }
             }
         }
@@ -53,7 +56,7 @@
             if (!_powerSystemResource.Contains(powerSystemResource))
             {
                 Array.Resize(ref _powerSystemResource, _powerSystemResource.Length + 1);
-                _powerSystemResource[_powerSystemResource.Length - 1] = powerSystemResource;
+                _powerSystemResource[^1] = powerSystemResource;
 
                 powerSystemResource.AddToAssets(this);
             }
@@ -70,7 +73,7 @@
                     if (_powerSystemResource[i].mRID != powerSystemResource.mRID)
                     {
                         Array.Resize(ref tempArray, tempArray.Length + 1);
-                        tempArray[tempArray.Length - 1] = _powerSystemResource[i];
+                        tempArray[^1] = _powerSystemResource[i];
                     }
                 }
 

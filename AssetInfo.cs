@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Base class for describing technical parameters of various types of equipment.
+    /// </summary>
     public abstract class AssetInfo : IdentifiedObject
     {
         public PowerSystemResource PowerSystemResources { get; set; }

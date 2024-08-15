@@ -25,8 +25,11 @@
                 }
                 else
                 {
-                    _primeMover.AsynchronousMachine = null;
-                    _primeMover = null;
+                    if (_primeMover != null)
+                    {
+                        _primeMover.AsynchronousMachine = null;
+                        _primeMover = null;
+                    }
                 }
             }
         }

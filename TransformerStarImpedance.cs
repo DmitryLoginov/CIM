@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Transformer resistance based on the star model.
+    /// </summary>
+    /// <remarks>
+    /// Used for 2- and 3-winding transformers.
+    /// </remarks>
     public class TransformerStarImpedance : IdentifiedObject
     {
         public double r { get; set; }

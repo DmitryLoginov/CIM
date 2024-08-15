@@ -23,8 +23,11 @@
                 else
                 {
                     // TODO: error: AuxiliaryEquipment without a Terminal
-                    _terminal.RemoveFromAuxiliaryEquipment(this);
-                    _terminal = null;
+                    if (_terminal != null)
+                    {
+                        _terminal.RemoveFromAuxiliaryEquipment(this);
+                        _terminal = null;
+                    }
                 }
             }
         }
@@ -43,17 +46,15 @@
         /// </summary>
         /// <param name="terminal"><inheritdoc cref="Terminal" path="/summary/node()" /></param>
         protected AuxiliaryEquipment(Terminal terminal) 
-            : this(terminal, Guid.NewGuid()) { }
+            : this(Guid.NewGuid(), terminal) { }
         /// <summary>
         /// AuxiliaryEquipment constructor.
         /// </summary>
-        /// <param name="terminal"><inheritdoc cref="Terminal" path="/summary/node()" /></param>
         /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
-        protected AuxiliaryEquipment(Terminal terminal, Guid mRID) : base(mRID)
+        /// <param name="terminal"><inheritdoc cref="Terminal" path="/summary/node()" /></param>
+        protected AuxiliaryEquipment(Guid mRID, Terminal terminal) : base(mRID)
         {
             Terminal = terminal;
         }
-
-
     }
 }

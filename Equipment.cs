@@ -19,15 +19,18 @@
             get => _equipmentContainer;
             set
             {
-                if (_equipmentContainer != null)
+                if (value != null)
                 {
                     _equipmentContainer = value;
                     _equipmentContainer.AddToEquipments(this);
                 }
                 else
                 {
-                    _equipmentContainer.RemoveFromEquipments(this);
-                    _equipmentContainer = null;
+                    if (_equipmentContainer != null)
+                    {
+                        _equipmentContainer.RemoveFromEquipments(this);
+                        _equipmentContainer = null;
+                    }
                 }
             }
         }
@@ -65,7 +68,7 @@
             if (!_additionalEquipmentContainer.Contains(equipmentContainer))
             {
                 Array.Resize(ref _additionalEquipmentContainer, _additionalEquipmentContainer.Length + 1);
-                _additionalEquipmentContainer[_additionalEquipmentContainer.Length - 1] = equipmentContainer;
+                _additionalEquipmentContainer[^1] = equipmentContainer;
 
                 equipmentContainer.AddToAdditionalGroupedEquipment(this);
             }
@@ -82,7 +85,7 @@
                     if (_additionalEquipmentContainer[i].mRID != equipmentContainer.mRID)
                     {
                         Array.Resize(ref tempArray, tempArray.Length + 1);
-                        tempArray[tempArray.Length - 1] = _additionalEquipmentContainer[i];
+                        tempArray[^1] = _additionalEquipmentContainer[i];
                     }
                 }
 

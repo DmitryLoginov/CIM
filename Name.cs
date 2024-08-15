@@ -24,8 +24,11 @@
                 else
                 {
                     // TODO: error: Name without an IdentifiedObject
-                    _identifiedObject.RemoveFromNames(this);
-                    _identifiedObject = null;
+                    if (_identifiedObject != null)
+                    {
+                        _identifiedObject.RemoveFromNames(this);
+                        _identifiedObject = null;
+                    }
                 }
             }
         }

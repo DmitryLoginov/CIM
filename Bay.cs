@@ -8,12 +8,12 @@
     /// </remarks>
     public class Bay : EquipmentContainer
     {
-        private VoltageLevel? _voltageLevel;
+        private VoltageLevel _voltageLevel;
 
         /// <summary>
         /// The switchgear to which the connection belongs.
         /// </summary>
-        public VoltageLevel? VoltageLevel
+        public VoltageLevel VoltageLevel
         {
             get => _voltageLevel;
             set
@@ -26,8 +26,11 @@
                 else
                 {
                     // TODO: error: Bay without a VoltageLevel
-                    _voltageLevel.RemoveFromBays(this);
-                    _voltageLevel = null;
+                    if (_voltageLevel != null)
+                    {
+                        _voltageLevel.RemoveFromBays(this);
+                        _voltageLevel = null;
+                    }
                 }
             }
             /*get => _voltageLevel;
@@ -45,21 +48,26 @@
             }*/
         }
 
-        // TODO: null Bay
         /// <summary>
         /// Bay constructor.
         /// </summary>
-        /// <param name="voltageLevel"><inheritdoc cref="VoltageLevel" path="/summary/node()" /></param>
-        public Bay(VoltageLevel voltageLevel)
-        {
-            VoltageLevel = voltageLevel;
-        }
+        public Bay() : base() { }
         /// <summary>
         /// Bay constructor.
         /// </summary>
-        /// <param name="voltageLevel"><inheritdoc cref="VoltageLevel" path="/summary/node()" /></param>
         /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
-        public Bay(VoltageLevel voltageLevel, Guid mRID) : base(mRID)
+        public Bay(Guid mRID) : base(mRID) { }
+        /// <summary>
+        /// Bay constructor.
+        /// </summary>
+        /// <param name="voltageLevel"><inheritdoc cref="VoltageLevel" path="/summary/node()" /></param>
+        public Bay(VoltageLevel voltageLevel) : this(Guid.NewGuid(), voltageLevel) { }
+        /// <summary>
+        /// Bay constructor.
+        /// </summary>
+        /// <param name="mRID"><inheritdoc cref="IdentifiedObject.mRID" path="/summary/node()" /></param>
+        /// <param name="voltageLevel"><inheritdoc cref="VoltageLevel" path="/summary/node()" /></param>
+        public Bay(Guid mRID, VoltageLevel voltageLevel) : base(mRID)
         {
             VoltageLevel = voltageLevel;
         }

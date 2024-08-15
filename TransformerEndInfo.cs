@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Technical parameters of the transformer output.
+    /// </summary>
     public class TransformerEndInfo : AssetInfo
     {
         public double ratedU { get; set; }

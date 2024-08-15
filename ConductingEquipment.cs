@@ -5,14 +5,14 @@
     /// </summary>
     public abstract class ConductingEquipment : Equipment
     {
-        private BaseVoltage _baseVoltage;
+        private BaseVoltage? _baseVoltage;
         private Terminal[] _terminals = [];
         //protected readonly int _numberOfPoles;
 
         /// <summary>
         /// Standard rated voltage of electrically conductive equipment.
         /// </summary>
-        public BaseVoltage BaseVoltage
+        public BaseVoltage? BaseVoltage
         {
             get => _baseVoltage;
             set
@@ -25,8 +25,11 @@
                 else
                 {
                     // TODO: error: ConductingEquipment without a BaseVoltage
-                    _baseVoltage.RemoveFromConductingEquipment(this);
-                    _baseVoltage = null;
+                    if (_baseVoltage != null)
+                    {
+                        _baseVoltage.RemoveFromConductingEquipment(this);
+                        _baseVoltage = null;
+                    }
                 }
             }
         }
@@ -76,7 +79,7 @@
                     var terminal = new Terminal(this);
 
                     Array.Resize(ref _terminals, _terminals.Length + 1);
-                    _terminals[_terminals.Length - 1] = terminal;
+                    _terminals[^1] = terminal;
                 }
             }
         }
@@ -86,7 +89,7 @@
             if (!_terminals.Contains(terminal))
             {
                 Array.Resize(ref _terminals, _terminals.Length + 1);
-                _terminals[_terminals.Length - 1] = terminal;
+                _terminals[^1] = terminal;
 
                 //childOrganisation.ParentOrganisation = this;
             }
@@ -103,7 +106,7 @@
                     if (_terminals[i].mRID != terminal.mRID)
                     {
                         Array.Resize(ref tempArray, tempArray.Length + 1);
-                        tempArray[tempArray.Length - 1] = _terminals[i];
+                        tempArray[^1] = _terminals[i];
                     }
                 }
 

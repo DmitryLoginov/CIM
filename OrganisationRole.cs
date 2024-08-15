@@ -40,8 +40,11 @@
                 else
                 {
                     // TODO: error: OrganisationRole without an Organisation
-                    _organisation.RemoveFromRoles(this);
-                    _organisation = null;
+                    if (_organisation != null)
+                    {
+                        _organisation.RemoveFromRoles(this);
+                        _organisation = null;
+                    }
                 }
             }
         }
@@ -80,7 +83,7 @@
             if (!_objects.Contains(identifiedObject))
             {
                 Array.Resize(ref _objects, _objects.Length + 1);
-                _objects[_objects.Length - 1] = identifiedObject;
+                _objects[^1] = identifiedObject;
 
                 identifiedObject.AddToOrganisationRoles(this);
             }
@@ -101,7 +104,7 @@
                     if (_objects[i].mRID != identifiedObject.mRID)
                     {
                         Array.Resize(ref tempArray, tempArray.Length + 1);
-                        tempArray[tempArray.Length - 1] = _objects[i];
+                        tempArray[^1] = _objects[i];
                     }
                 }
 

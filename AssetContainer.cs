@@ -31,7 +31,7 @@
             if (!_assets.Contains(asset))
             {
                 Array.Resize(ref _assets, _assets.Length + 1);
-                _assets[_assets.Length - 1] = asset;
+                _assets[^1] = asset;
 
                 //asset.AssetContainer = this;
             }
@@ -48,7 +48,7 @@
                     if (_assets[i].mRID != asset.mRID)
                     {
                         Array.Resize(ref tempArray, tempArray.Length + 1);
-                        tempArray[tempArray.Length - 1] = _assets[i];
+                        tempArray[^1] = _assets[i];
                     }
                 }
 

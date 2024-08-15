@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Base class for transformer winding test results.
+    /// </summary>
     public abstract class TransformerTest : IdentifiedObject
     {
     }

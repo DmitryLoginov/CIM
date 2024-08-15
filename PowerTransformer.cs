@@ -6,10 +6,13 @@
     public class PowerTransformer : ConductingEquipment
     {
         private PowerTransformerEnd[] _powerTransformerEnd = [];
-        
+
         /// <summary>
-        /// 
+        /// Winding connection group.
         /// </summary>
+        /// <remarks>
+        /// A line defining voltages, connection group, winding connection diagram.
+        /// </remarks>
         public string vectorGroup { get; set; }
         /// <summary>
         /// Electrical terminals of the power transformer.
@@ -34,7 +37,7 @@
             if (!_powerTransformerEnd.Contains(powerTransformerEnd))
             {
                 Array.Resize(ref _powerTransformerEnd, _powerTransformerEnd.Length + 1);
-                _powerTransformerEnd[_powerTransformerEnd.Length - 1] = powerTransformerEnd;
+                _powerTransformerEnd[^1] = powerTransformerEnd;
 
                 //powerTransformerEnd.PowerTransformer = this;
             }
@@ -52,7 +55,7 @@
                     if (_powerTransformerEnd[i].mRID != powerTransformerEnd.mRID)
                     {
                         Array.Resize(ref tempArray, tempArray.Length + 1);
-                        tempArray[tempArray.Length - 1] = _powerTransformerEnd[i];
+                        tempArray[^1] = _powerTransformerEnd[i];
                     }
                 }
 

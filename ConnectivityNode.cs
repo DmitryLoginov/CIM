@@ -68,7 +68,7 @@
             if (!_terminals.Contains(terminal))
             {
                 Array.Resize(ref _terminals, _terminals.Length + 1);
-                _terminals[_terminals.Length - 1] = terminal;
+                _terminals[^1] = terminal;
 
                 //terminal.ConnectivityNode = this;
             }
@@ -85,7 +85,7 @@
                     if (_terminals[i].mRID != terminal.mRID)
                     {
                         Array.Resize(ref tempArray, tempArray.Length + 1);
-                        tempArray[tempArray.Length - 1] = _terminals[i];
+                        tempArray[^1] = _terminals[i];
                     }
                 }
 

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CIM
+﻿namespace CIM
 {
+    /// <summary>
+    /// Parameters of the short-circuit test of the transformer winding.
+    /// </summary>
     public class ShortCircuitTest : TransformerTest
     {
         public double loss { get; set; }

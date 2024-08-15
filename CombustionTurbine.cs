@@ -6,16 +6,15 @@
     public class CombustionTurbine : PrimeMover
     {
         private HeatRecoveryBoiler? _heatRecoveryBoiler;
-        
+
         /// <summary>
-        /// Gas turbine waste heat boiler.
+        /// Waste heat boiler for gas turbine.
         /// </summary>
         public HeatRecoveryBoiler? HeatRecoveryBoiler
         {
             get => _heatRecoveryBoiler;
             set
             {
-                // TODO: null
                 if (value != null)
                 {
                     _heatRecoveryBoiler = value;
@@ -23,8 +22,11 @@
                 }
                 else
                 {
-                    _heatRecoveryBoiler.AddToCombustionTurbine(this);
-                    _heatRecoveryBoiler = null;
+                    if (_heatRecoveryBoiler != null)
+                    {
+                        _heatRecoveryBoiler.AddToCombustionTurbine(this);
+                        _heatRecoveryBoiler = null;
+                    }
                 }
             }
         }
